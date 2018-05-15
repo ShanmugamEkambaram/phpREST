@@ -1,0 +1,38 @@
+company_authorization_letter,
+investigation_report_form,
+insured_questionarie,
+treating_doc_questionarie,
+other_file,
+evidance_for_trigger,
+trigger_finding,
+any_comments_visit,
+pay_conveyance,
+case_type_id,
+case_assignment_id,
+doc1,
+doc2,
+doc3,
+doc1_filename,
+doc2_filename,
+doc3_filename,
+trigger_qus,
+trigger_ans,
+triggers_filename,
+submitted_date,
+
+
+
+Trigger 
+Load use select trigger_id,case_assignment_id,triggers_filename,trigger_ans,trigger_qus,case_registration_id,flag
+save or submit 
+update created and modified date have to update 
+
+Dynamic case:
+ flag=0
+ select document_name,file_name,case_module_id,attach_doc_name_id where clause case_module_id and attach_doc_name_id
+flag=1
+update created and modified date have to update 
+
+3:
+save or submit 
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/audioupload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+
+</body>
+</html>
+
+
+
+
+function assignStatus($id,$status){	
+	$db = connect_db();
+	$sql = "SELECT * FROM case_assignment where consultant_id='$id' and assign_status='$status'";
+	$exe = $db->query($sql);
+	$data = $exe->fetch_all(MYSQLI_ASSOC);
+	$db = null;
+	foreach($data as $record){		
+		$assign_status=$record["assign_status"];
+		$case_id=$record["case_id"];
+
+		if (in_array($assign_status,array("submitted","Submitted","SUBMITTED"))) {
+				return 1;
+		}
+		elseif (in_array($assign_status,array("save","Save","SAVE"))){
+			return 2;
+		}
+		elseif (in_array($assign_status,array("pending","Pending","PENDING"))) {
+			return 3;
+		}
+		else{
+			return 4;
+		}
+			return;	
+		}
+	}
+	
+	select a.claim_no,a.patient_name,block_name,TAT,case_pay,ta,mrd,incentive,total_amount
+	
+	"SELECT a.case_id,a.case_type,a.case_assigned_on,b.patient_name,b.claim_no,b.status,b.policy_number,c.company_name from case_assignment a,case_registration b,insurance_companies c where a.consultant_id='7' and a.case_id=b.case_registration_id and b.company_id=c.company_id GROUP BY a.consultant_id"
